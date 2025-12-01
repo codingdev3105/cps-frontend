@@ -5,6 +5,11 @@ import HumidityCircle from './components/HumidityCircle';
 import TemperatureCard from './components/TemperatureCard';
 import './App.css';
 
+
+
+// http://localhost:5000
+// https://cps-backend-ten.vercel.app
+//  https://cps-backend-snh7.onrender.com
 export default function App() {
   const { groupe } = useParams();
   const [logs, setLogs] = useState([]);
@@ -12,7 +17,7 @@ export default function App() {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const res = await axios.get(`https://cps-backend-ten.vercel.app/logs/${groupe}`);
+        const res = await axios.get(` https://cps-backend-snh7.onrender.com/logs/${groupe}`);
         setLogs(res.data);
       } catch (err) {
         console.error(err);
@@ -34,7 +39,7 @@ export default function App() {
       </div>
 
       <div className="right-panel">
-        <h3>Logs</h3>
+        <h3>{logs.length} derniers Logs </h3>
         <div className="logs">
           {logs.length === 0 && <p>Aucune donnée reçue.</p>}
           {logs.map((log, idx) => (
