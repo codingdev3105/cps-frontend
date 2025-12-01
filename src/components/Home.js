@@ -26,7 +26,7 @@ export default function Home() {
   // Charger la liste au montage + toutes les 5 secondes (optionnel, pour temps réel)
   useEffect(() => {
     fetchGroups();
-    const interval = setInterval(fetchGroups, 5000);
+    const interval = setInterval(fetchGroups, 10000);
     return () => clearInterval(interval); // Nettoyage
   }, []);
 
